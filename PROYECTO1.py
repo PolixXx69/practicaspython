@@ -6,9 +6,36 @@ print("Bienvenido a la calculeitor3000 de IMC "+nombre+" espero te encuentres bi
 print("\tA continuacion necesitare tu edad, altura y peso para continuar")
 
 #recoleccion de datos
-edad= int(input("Introduce tu edad en años:\n "))
-altura= float(input("introduce tu estatura(en metros): \n"))
-peso= float(input("introduce tu peso(en kilos): \n"))
+edad_valida = False
+while not edad_valida:
+    try:
+        edad = int(input("Introduce tu edad en años:\n "))
+        if 1 <= edad <= 99:
+            edad_valida = True
+        else:
+            print("Edad incorrecta, ingrese su edad en años de nuevo:")
+    except ValueError:
+        print("Por favor, ingrese solo números.")
+altura_valida = False
+while not altura_valida:
+    try:
+        altura = float(input("Introduce tu estatura (en metros): \n"))
+        if 0.5 <= altura <= 2.2:
+            altura_valida = True
+        else:
+            print("Altura no valida. Por favor, ingrese una altura entre 0.5 y 2.2metros.")
+    except ValueError:
+        print("Por favor, ingrese solo números.")
+peso_valido = False
+while not peso_valido:
+    try:
+        peso = float(input("Introduce tu peso (en kilogramos): \n"))
+        if 20 <= peso <= 250:
+            peso_valido = True
+        else:
+            print("Peso no valido. Por favor, ingrese un peso entre 20 y 250 kilogramos.")
+    except ValueError:
+        print("Por favor, ingrese solo números.")
 IMC= peso/altura**2
 
 #datos recolectados
